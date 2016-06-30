@@ -4,45 +4,48 @@ namespace TDD\Loja\Carrinho;
 /**
  *
  * @author erick.giorgio
- *        
+ *
  */
 
 use  TDD\Loja\Produto\Produto;
 use ArrayObject;
 
-class CarrinhoDeCompras 
+class CarrinhoDeCompras
 {
-    
-    
-    
+
+
     protected $produtos;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->produtos = new ArrayObject();
     }
 
-    
-    public function adiciona(Produto $produto){
+
+    public function adiciona(Produto $produto)
+    {
         $this->produtos->append($produto);
         return $this;
     }
-    
-    public function getProdutos(){
+
+    public function getProdutos()
+    {
         return $this->produtos;
     }
+
     
-    public function maiorValor(){
-        if(count($this->getItens()) == 0){
+    public function maiorValor()
+    {
+        if (count($this->getProdutos()) === 0) {
             return 0;
         }
-        $maiorValor = $this->getProdutos()[0]->getValor();
-        foreach ($this->getProdutos()as $produto){
-            if($maiorValor < $produto->getValor()){
-                $maiorValor = $produto->getValor();
+        $maiorValor = $this->getProdutos()[0]->getValorUnitario();
+        foreach ($this->getProdutos() as $produto) {
+            if ($maiorValor < $produto->getValorUnitario()) {
+                $maiorValor = $produto->getValorUnitario();
             }
         }
         return $maiorValor;
     }
-    
-    
+
 }

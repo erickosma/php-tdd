@@ -4,20 +4,23 @@ namespace TDD\Loja\Produto;
 /**
  *
  * @author erick.giorgio
- *        
+ *
  */
 
 class Produto
 {
 
-    protected $nome;
+    private $nome;
+    private $valorUnitario;
+    private $quantidade;
 
-    protected $valor;
 
-    public function __construct($nome, $valor)
+
+    public function __construct($nome, $valor,$quantidade= 1)
     {
         $this->nome = $nome;
-        $this->valor = $valor;
+        $this->valorUnitario = $valor;
+        $this->quantidade = $quantidade;
     }
 
     /**
@@ -35,6 +38,24 @@ class Produto
      */
     public function getValor()
     {
-        return $this->valor;
+        return $this->valorUnitario;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getValorUnitario()
+    {
+        return $this->valorUnitario;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantidade()
+    {
+        return $this->quantidade;
+    }
+
+
 }

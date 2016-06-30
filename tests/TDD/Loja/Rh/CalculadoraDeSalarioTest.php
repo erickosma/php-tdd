@@ -8,14 +8,13 @@
 
 namespace TDD\Loja\Rh;
 
-require "./vendor/autoload.php";
 
-use PHPUnit_Framework_TestCase as PHPUnit;
+use TDD\Loja\Test\TestCase;
 use TDD\Loja\Rh\CalculadoraDeSalario,
     TDD\Loja\Rh\Funcionario,
     TDD\Loja\Rh\TabelaCargos;
 
-class CalculadoraDeSalarioTest extends PHPUnit
+class CalculadoraDeSalarioTest extends TestCase
 {
 
     public function testCalculoSalarioDesenvolvedoresComSalarioAbaixoDoLimite()
@@ -39,6 +38,7 @@ class CalculadoraDeSalarioTest extends PHPUnit
         $calculadora = new CalculadoraDeSalario();
         $dba = new Funcionario("Andre", 500.0, TabelaCargos::DBA);
         $salario = $calculadora->calculaSalario($dba);
-        $this->assertEquals(500.0 * 0.85, $salario, null, 0.00001);
+        $this->assertEquals(500.0 * 0.9, $salario, null, 0.00001);
     }
+
 }
