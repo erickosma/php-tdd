@@ -19,6 +19,9 @@
             "TDD\\Exemplos\\": [
                 "src/TDD/Exemplos",
                 "tests/TDD/Exemplos"
+            ],
+            "Outros\\": [
+                "src/Outros/"
             ]
 
         }
